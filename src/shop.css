@@ -71,13 +71,16 @@ body {
     padding-right: 15px;
     padding-top: 15px;
     gap: 0px;
-    justify-content: center;
     overflow-y: scroll;
     max-height: calc(100vh - 82px);
     position: relative;
     top: -67px;
     padding-top: 82px;
     scroll-behavior: smooth;
+    overflow-x: scroll;
+    max-width: 1032px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .search-brand:first-child {
