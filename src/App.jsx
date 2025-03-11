@@ -45,6 +45,8 @@ function App() {
 function Home() {
 
   const navigate = useNavigate();
+  navigate("/shop");
+  return;
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
