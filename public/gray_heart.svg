@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90">
+  <!-- Very round red heart shape -->
+  <path d="M50 85
+           C 25 65, -10 45, 5 15
+           C 15 -5, 35 -5, 50 15
+           C 65 -5, 85 -5, 95 15
+           C 110 45, 75 65, 50 85
+           Z" 
+        fill="gray" />
+</svg>

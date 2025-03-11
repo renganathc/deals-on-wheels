@@ -1,0 +1,85 @@
+.card {
+    width: 320px;
+    border: solid 0.5px #c7c7c7;
+    margin: 12px;
+    height: fit-content;
+    border-radius: 16px;
+    padding-bottom: 0;
+    overflow: hidden;
+    position: relative;
+    /*box-shadow: 4px 4px 14px rgba(71, 71, 71, 0.059);*/
+}
+
+.card-image {
+    /*height : 124px;*/
+    height:134px;
+    width : 320px;
+    padding-right: 54px;
+    padding-left: 50px;
+    box-sizing: border-box;
+    /*background: linear-gradient(to bottom, #8a8a8a36, white);*/
+    background: linear-gradient(to bottom, #8a8a8a10, white);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    object-fit: contain;
+    padding-top: 4px;
+    /*margin bottom*/
+    margin-bottom: 20px;
+}
+
+.car-model {
+    font-size: 15.5px;
+    font-family: 'Poppins', sans-serif, Courier, monospace;
+    font-weight: 400;
+    color: #717171;
+    padding-left: 15px;
+    white-space: nowrap;
+    margin-right: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+    margin-top: 4px;
+}
+
+.info-card {
+    display: flex;
+    flex-direction: row;
+    padding-left: 15px;
+    margin-top: 7px;
+}
+
+.info {
+    font-size: 12.5px;
+    font-family: sans-serif, Courier, monospace;
+    color: #808080;
+    background-color: #f1f0f0ca;
+    padding: 5.5px;
+    padding-right: 7px;
+    padding-left: 7px;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-top: 0;
+}
+
+.price-text {
+    background-color:"transparent";
+    font-family: sans-serif, Courier, monospace;
+    color:"#343434";
+    font-weight:570;
+    font-size:14.7px;
+    padding:0;
+    margin-top: 0;
+    padding-bottom: 3px;
+    border-bottom: dashed 1px #7b7b7bf4;
+    height: fit-content;
+    text-align: right;
+}
+
+.like-btn {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 3.2%;
+    right: 3.3%;
+    transition: all 70ms ease;
+}
