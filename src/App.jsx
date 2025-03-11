@@ -31,7 +31,7 @@ function App() {
   return(
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Shop />} />
         <Route path="/dash" element={<Dash />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/car_listing" element={<Listing/>} />
@@ -45,8 +45,6 @@ function App() {
 function Home() {
 
   const navigate = useNavigate();
-  navigate("/shop");
-  return;
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
