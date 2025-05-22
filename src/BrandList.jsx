@@ -6,7 +6,7 @@ function BrandList(props) {
 
     for (let brand of brands) {
         if (brand.toLowerCase().includes(props.search.toLowerCase()) || props.search == "") {
-            brand_elem.push(<div className="brand" key={brand}><input value={brand} type="checkbox" checked={props.selected_brands.includes(brand)} onChange={(e) => props.onChange(e)}/><p>{brand}</p></div>);
+            brand_elem.push(<div className="brand" key={brand}><input value={brand} type="checkbox" checked={props.selected_brands.some(selected => brand.includes(selected))} onChange={(e) => props.onChange(e)}/><p>{brand}</p></div>);
         }
     }
 

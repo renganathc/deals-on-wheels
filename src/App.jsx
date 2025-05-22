@@ -29,7 +29,6 @@ function App() {
   ]) */
 
   return(
-    <Router>
       <Routes>
         <Route path="/" element={<Home1 />} />
         <Route path="/dash" element={<Dash />} />
@@ -37,7 +36,6 @@ function App() {
         <Route path="/car_listing/:id" element={<Listing />} />
         <Route path="/*" element={<h1>404 bro</h1>} />
       </Routes>
-    </Router>
   )
   
 }

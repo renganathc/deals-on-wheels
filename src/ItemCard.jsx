@@ -11,10 +11,21 @@ function ItemCard(props) {
         navigate(`/car_listing/${props.car_data._id}`);
     }
 
-    let [liked, setLiked] = useState(false);
+    let [liked, setLiked] = useState(props.liked);
 
     const likeCar = () => {
-        setLiked(!liked);
+        let likedString = localStorage.getItem("liked") || "";
+        let likedList = likedString ? likedString.split(",") : [];
+
+        if (liked == true) {
+            setLiked(false);
+            likedList = likedList.filter(id => id !== props.car_data._id);
+        } else {
+            setLiked(true);
+            likedList.push(props.car_data._id);
+        }
+
+        localStorage.setItem("liked", likedList.join(","));
     }
 
     const mileage = Math.round(Number((props.car_data.km/1000).toFixed(1))*10)/10;

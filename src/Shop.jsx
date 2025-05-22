@@ -14,18 +14,50 @@ function Shop() {
     const [transmission, setTransmission] = useState("");
     const [mileage, setMileage] = useState([1000,150000]);
 
-    let [cars_list, setCars_list] = useState([]);
+    const [cars_list, setCars_list] = useState([]);
+
+    const [liked_cars_list, setLiked] = useState([]);
+
+    useEffect(() => {
+    const stored = sessionStorage.getItem("filters");
+    if (stored) {
+        const parsed = JSON.parse(stored);
+        setPrice(parsed.price || [200000, 2500000]);
+        setBrands(parsed.brands || []);
+        setCategory(parsed.category || "assured");
+        setYear(parsed.year || [2008, 2025]);
+        setTransmission(parsed.transmission || "");
+        setMileage(parsed.mileage || [1000, 150000]);
+    }
+
+    const liked_cars = localStorage.getItem("liked") || "";
+    const parsed_liked = liked_cars ? liked_cars.split(",") : [];
+    setLiked(parsed_liked);
+
+    console.log(liked_cars);
+
+}, []);
 
     useEffect(() => {
         const get_cars = async () => {
-            const result = await fetch("https://deals-on-wheels-backend.onrender.com/api/cars");
+            let url = "https://deals-on-wheels-backend.onrender.com/api/cars?";
+            url = url + "minPrice=" + price[0]/100000 + "&maxPrice=" + price[1]/100000;
+            url = url + "&startYear=" + year[0] + "&endYear=" + year[1];
+            url = url + "&startMileage=" + mileage[0] + "&endMileage=" + mileage[1];
+            if (transmission != "" && transmission != "both") {
+                url = url + "&transmission=" + transmission;
+            }
+            brands.forEach(brand => {url = url + "&brand=" + brand;});
+            const result = await fetch(url);
             const data = await result.json();
             setCars_list(data.data);
-            console.log(data.data);
+            console.log(url);
         }
 
         get_cars();
-    }, []);
+        storeFilters();
+
+    }, [price, brands, category, year, transmission, mileage]);
 
 
 
@@ -57,23 +89,24 @@ function Shop() {
     const [searchBrand, setSearchBrand] = useState("");
 
     const receive_brand = (e) => {
+        let x = e.target.value;
+        if (x == "Maruti Suzuki") {
+                x = "Maruti";
+            }
         if (e.target.checked) {
-            if (!brands.includes(e.target.value)) {
-                setBrands([...brands, e.target.value]);
+            if (!brands.includes(x)) {
+                setBrands([...brands, x]);
             }
         } else {
-            setBrands(brands.filter(b => b !== e.target.value));
+            setBrands(brands.filter(b => b !== x));
         }
-
-
-        console.log(brands);
     }
 
     const toggleTransmission = (value) => {
         if (transmission === value) {
             setTransmission("");
         } else if (transmission === "both") {
-            setTransmission(value === "auto" ? "manual" : "auto");
+            setTransmission(value === "Automatic" ? "Manual" : "Automatic");
         } else if (transmission === "" ) {
             setTransmission(value);
         } else {
@@ -81,6 +114,17 @@ function Shop() {
         }
     };
 
+    const storeFilters = () => {
+    const filters = {
+        price,
+        brands,
+        category,
+        year,
+        transmission,
+        mileage
+    };
+    sessionStorage.setItem("filters", JSON.stringify(filters));
+};
 
     return(
         <>
@@ -115,8 +159,8 @@ function Shop() {
                     <div className="divider"></div>
                     
                     <p className="sub-heading" style={{marginBottom:"8px"}}>Transmission</p>
-                    <div className="brand2"><input type="checkbox" value="auto" checked={transmission == "auto" || transmission == "both"} onChange={() => toggleTransmission("auto")}/><p>Automatic</p></div>
-                    <div className="brand2"><input type="checkbox" value="manual" checked={transmission == "manual" || transmission == "both"} onChange={() => toggleTransmission("manual")}/><p>Manual</p></div>
+                    <div className="brand2"><input type="checkbox" value="Automatic" checked={transmission == "Automatic" || transmission == "both"} onChange={() => toggleTransmission("Automatic")}/><p>Automatic</p></div>
+                    <div className="brand2"><input type="checkbox" value="Manual" checked={transmission == "Manual" || transmission == "both"} onChange={() => toggleTransmission("Manual")}/><p>Manual</p></div>
                     <div className="divider" style={{marginTop:"20px"}}></div>
 
                     <p className="sub-heading">Mileage</p>
@@ -133,8 +177,7 @@ function Shop() {
                     <input className="search-brand" type="text" placeholder="Search for Cars" style={{marginLeft:12, marginRight:12, marginTop:15, width:"95%"}}/>
                     <p className="dummy-text"><span style={{color:"#FF5733", fontSize:13, fontWeight:600}}>{cars_list.length * 2} Used Cars in Chennai</span><br/>Each of our pre-owned cars in chennai is certified through a comprehensive 200-point quality check, ensuring you select from the best second-hand cars in chennai. Explore a wide range of popular used cars on Deals on Wheels. For a hassle-free ownership experience, Deals on Wheels provides a 5-day money-back guarantee, free RC transfer, and quick loan approvals on all Deals on Wheels Assured second-hand nissan cars in chennai.</p>
 
-                    { cars_list.map((car) => <ItemCard key={car._id} car_data={car}/>) }
-                    { cars_list.map((car) => <ItemCard key={car._id+"2"} car_data={car}/>) }
+                    { cars_list.map((car) => <ItemCard key={car._id} car_data={car} liked={liked_cars_list.includes(car._id)}/>) }
 
                 </div>
             </div>
@@ -143,4 +186,3 @@ function Shop() {
 }
 
 export default Shop
-
