@@ -1,5 +1,5 @@
 .card {
-    width: 320px;
+    max-width: 400px;
     border: solid 0.5px #c7c7c7;
     margin: 12px;
     height: fit-content;
@@ -11,9 +11,8 @@
 }
 
 .card-image {
-    /*height : 124px;*/
-    height:134px;
-    width : 320px;
+    height:137px;
+    width : 100%;
     padding-right: 54px;
     padding-left: 50px;
     box-sizing: border-box;

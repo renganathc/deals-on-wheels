@@ -1,10 +1,14 @@
 import {React} from 'react'
 import './header.css'
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
 
+    const navigate = useNavigate();
+
     const handleLogoBtn = () => {
         window.scrollTo({top:0, left:0, behavior: "smooth"});
+        navigate("/shop");
     }
 
     return(

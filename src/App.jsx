@@ -31,15 +31,23 @@ function App() {
   return(
     <Router>
       <Routes>
-        <Route path="/" element={<Shop />} />
+        <Route path="/" element={<Home1 />} />
         <Route path="/dash" element={<Dash />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/car_listing" element={<Listing/>} />
+        <Route path="/car_listing/:id" element={<Listing />} />
         <Route path="/*" element={<h1>404 bro</h1>} />
       </Routes>
     </Router>
   )
   
+}
+
+function Home1() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/shop");
+  }, []);
 }
 
 function Home() {

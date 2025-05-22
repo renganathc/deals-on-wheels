@@ -1,5 +1,6 @@
 body {
     overflow: hidden;
+    height: 100vh
 }
 
 .shop-cont {
@@ -8,11 +9,12 @@ body {
 }
 
 .filters {
-    width: 340px;
+    flex: 1 1 24%;
     height: calc(100vh - 67px);
     border-right: solid 0.1px #8b8b8b;
     position: sticky;
-    min-width: 250px;
+    min-width: 225px;
+    max-width: 27%;
     top: 67px;
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -63,10 +65,10 @@ body {
 }
 
 .item-list {
+    flex: 3.6 1 76%;
     height: 100%;
-    flex-grow: 1;
     display: grid;
-    grid-template-columns: repeat(3, 344px);
+    grid-template-columns: repeat(3, 1fr);
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 15px;
@@ -78,9 +80,10 @@ body {
     padding-top: 82px;
     scroll-behavior: smooth;
     overflow-x: scroll;
-    max-width: 1032px;
+    max-width: 1272px;
     margin-left: auto;
     margin-right: auto;
+    min-width: 909px;
 }
 
 .search-brand:first-child {
@@ -123,6 +126,43 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.brand2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.brand2 > p{
+    font-family: 'Poppins', sans-serif, Courier, monospace;
+    font-size: 15.2px;
+    color: #4b4b4be2;
+    margin-bottom: 11px;
+    margin-top: 11px;
+    margin-left: 7.7px;
+}
+
+.brand2 input {
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    border: solid 1.6px #4b4b4bd5;
+    border-radius: 2px;
+    margin-left: 32px;
+}
+
+.brand2 input:checked {
+    background-color: #f6570d;
+    border: 0px;
+}
+
+.brand2 input:checked::after {
+    content: "✓";
+    color: white;
+    left: 23%;
+    top: 2%;
+    position: relative;
 }
 
 .brand > p{

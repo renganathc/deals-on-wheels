@@ -8,7 +8,7 @@ function ItemCard(props) {
 
     const itemClicked = (e) => {
         if (e.target.matches(".like-btn")) return;
-        navigate("/car_listing", {state: props.car_data});
+        navigate(`/car_listing/${props.car_data._id}`);
     }
 
     let [liked, setLiked] = useState(false);
@@ -31,7 +31,7 @@ function ItemCard(props) {
                 <p className="info">{props.car_data.ownerCount} owner</p>
             </div>
             <div className="info-card" style={{justifyContent:"space-between", paddingRight:"15px"}}>
-                <p className="price-text">EMI ₹5,327/m</p>
+                <p className="price-text">EMI ₹{Number((props.car_data.price*1000/0.8).toFixed(0)).toLocaleString()}/m</p>
                 <div>
                 <p className="price-text" style={{fontSize:"15.2px", fontFamily:"Poppins", fontWeight:500, borderBottom:0, marginBottom:0, paddingBottom:0}}>₹{props.car_data.price} lakh</p>
                 <p className="price-text" style={{fontSize:"12px", paddingBottom:"10px", marginTop:0, paddingBottom:2, color:"#7b7b7b", fontFamily:"Poppins", fontWeight:400}}>+ dealer charges</p>
