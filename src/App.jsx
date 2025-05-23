@@ -34,7 +34,7 @@ function App() {
         <Route path="/dash" element={<Dash />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/car_listing/:id" element={<Listing />} />
-        <Route path="/*" element={<h1>404 bro</h1>} />
+        <Route path="/*" element={<h1 style={{textAlign:"center"}}>Yep! That's a 404</h1>} />
       </Routes>
   )
   
