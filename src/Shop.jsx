@@ -175,7 +175,7 @@ function Shop() {
                 </div>
                 <div className="item-list">
                     <input className="search-brand" type="text" placeholder="Search for Cars" style={{marginLeft:12, marginRight:12, marginTop:15, width:"95%"}}/>
-                    <p className="dummy-text"><span style={{color:"#FF5733", fontSize:13, fontWeight:600}}>{cars_list.length * 2} Used Cars in Chennai</span><br/>Each of our pre-owned cars in chennai is certified through a comprehensive 200-point quality check, ensuring you select from the best second-hand cars in chennai. Explore a wide range of popular used cars on Deals on Wheels. For a hassle-free ownership experience, Deals on Wheels provides a 5-day money-back guarantee, free RC transfer, and quick loan approvals on all Deals on Wheels Assured second-hand nissan cars in chennai.</p>
+                    <p className="dummy-text"><span style={{color:"#FF5733", fontSize:13, fontWeight:600}}>{cars_list.length} Used Cars in Chennai</span><br/>Each of our pre-owned cars in chennai is certified through a comprehensive 200-point quality check, ensuring you select from the best second-hand cars in chennai. Explore a wide range of popular used cars on Deals on Wheels. For a hassle-free ownership experience, Deals on Wheels provides a 5-day money-back guarantee, free RC transfer, and quick loan approvals on all Deals on Wheels Assured second-hand nissan cars in chennai.</p>
 
                     { cars_list.map((car) => <ItemCard key={car._id} car_data={car} liked={liked_cars_list.includes(car._id)}/>) }
 
