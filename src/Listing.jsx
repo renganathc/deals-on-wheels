@@ -48,8 +48,8 @@ function Listing () {
                 <p className="sub-text">Owner Count: {car_data.ownerCount} Owner</p>
 
                 <div style={{ marginTop: 20 }}>
-                    <button className="buy" style={{display: "inline-block", boxSizing: "border-box", padding: "10px 0", marginRight:"2.5%"}}>Book Now</button>
-                    <button className="test-drive" style={{display: "inline-block", boxSizing: "border-box", padding: "10px 0"}}>Test Drive</button>
+                    <button className="buy" style={{display: "inline-block", boxSizing: "border-box", padding: "10px 0", marginRight:"2.5%"}} onClick={() => {alert("Under construction. Will be up shortly :)")}}>Book Now</button>
+                    <button className="test-drive" style={{display: "inline-block", boxSizing: "border-box", padding: "10px 0"}} onClick={() => {alert("Under construction. Will be up shortly :)")}}>Test Drive</button>
                 </div>
                 {/*<p className="portfolio-link">DoW Assured</p>*/}
                 </div>
