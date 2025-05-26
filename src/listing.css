@@ -108,7 +108,7 @@ body {
 }
 
 .buy {
-  background-color: #FF5733;     /* your accent */
+  background-color: #FF5733;     
   color: white;
   margin-right: 2.5%;
   box-shadow: 0 4px 8px rgba(255, 87, 51, 0.1);
@@ -116,12 +116,12 @@ body {
 }
 
 .buy:hover {
-  background-color: #cc4629;     /* slightly darker */
+  background-color: #cc4629;     
 }
 
 .test-drive {
   background-color: transparent;
-  color: #FF5733;                /* your accent */
+  color: #FF5733;                
   border: 1.5px solid #FF5733;
   box-shadow: none;
 }

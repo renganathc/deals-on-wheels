@@ -6,6 +6,7 @@ import Dash from "./dash.jsx"
 import { useEffect } from 'react';
 import Shop from './Shop.jsx';
 import Listing from './Listing.jsx';
+import BookCar from './BookCar.jsx';
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/dash" element={<Dash />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/car_listing/:id" element={<Listing />} />
+        <Route path="/book_car" element={<BookCar />} />
         <Route path="/*" element={<h1 style={{textAlign:"center"}}>Yep! That's a 404</h1>} />
       </Routes>
   )

@@ -36,6 +36,37 @@ function Shop() {
 
     console.log(liked_cars);
 
+    const getOS = () => {
+        const userAgent = window.navigator.userAgent;
+        if (userAgent.indexOf("Win") !== -1) return "Windows";
+        if (userAgent.indexOf("Mac") !== -1) return "MacOS";
+        if (userAgent.indexOf("Linux") !== -1) return "Linux";
+        if (userAgent.indexOf("Android") !== -1) return "Android";
+        if (userAgent.indexOf("like Mac") !== -1) return "iOS";
+        return "Unknown OS";
+    };
+
+    const now = new Date().toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    });
+
+    const inform_visit = async () => {
+        try {
+            const device = getOS();
+            await fetch("https://deals-on-wheels-backend.onrender.com/api/visit?device=" + encodeURIComponent(device) + "&time=" + encodeURIComponent(now));
+        } catch (error) {
+            console.error("Failed to send visit info:", error);
+        }
+    };
+
+    inform_visit();
+
 }, []);
 
     useEffect(() => {
@@ -87,6 +118,7 @@ function Shop() {
     }
 
     const [searchBrand, setSearchBrand] = useState("");
+    const [searchModel, setSearchModel] = useState("");
 
     const receive_brand = (e) => {
         let x = e.target.value;
@@ -174,10 +206,10 @@ function Shop() {
 
                 </div>
                 <div className="item-list">
-                    <input className="search-brand" type="text" placeholder="Search for Cars" style={{marginLeft:12, marginRight:12, marginTop:15, width:"95%"}}/>
+                    <input className="search-brand" type="text" placeholder="Search for Cars" style={{marginLeft:12, marginRight:12, marginTop:15, width:"95%"}} value={searchModel} onChange={(e) => setSearchModel(e.target.value)}/>
                     <p className="dummy-text"><span style={{color:"#FF5733", fontSize:13, fontWeight:600}}>{cars_list.length} Used Cars in Chennai</span><br/>Each of our pre-owned cars in chennai is certified through a comprehensive 200-point quality check, ensuring you select from the best second-hand cars in chennai. Explore a wide range of popular used cars on Deals on Wheels. For a hassle-free ownership experience, Deals on Wheels provides a 5-day money-back guarantee, free RC transfer, and quick loan approvals on all Deals on Wheels Assured second-hand nissan cars in chennai.</p>
 
-                    { cars_list.map((car) => <ItemCard key={car._id} car_data={car} liked={liked_cars_list.includes(car._id)}/>) }
+                    { cars_list.map((car) => (car.brand + " " + car.model).toLowerCase().includes(searchModel.toLowerCase()) ? <ItemCard key={car._id} car_data={car} liked={liked_cars_list.includes(car._id)}/> : null) }
 
                 </div>
             </div>

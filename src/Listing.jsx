@@ -1,6 +1,6 @@
 import "./listing.css";
 import Header from "./Header.jsx"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function Listing () {
@@ -9,6 +9,8 @@ function Listing () {
 
     const [car_data, setCar_data] = useState(null);
     const [error, setError] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         
@@ -48,42 +50,42 @@ function Listing () {
                 <p className="sub-text">Owner Count: {car_data.ownerCount} Owner</p>
 
                 <div style={{ marginTop: 20 }}>
-                    <button className="buy" style={{display: "inline-block", boxSizing: "border-box", padding: "10px 0", marginRight:"2.5%"}} onClick={() => {alert("Under construction. Will be up shortly :)")}}>Book Now</button>
-                    <button className="test-drive" style={{display: "inline-block", boxSizing: "border-box", padding: "10px 0"}} onClick={() => {alert("Under construction. Will be up shortly :)")}}>Test Drive</button>
+                    <button className="buy" style={{display: "inline-block", boxSizing: "border-box", padding: "10px 0", marginRight:"2.5%"}} onClick={() => {navigate("/book_car", {state:{car : car_data}});}}>Book Now</button>
+                    <button className="test-drive" style={{display: "inline-block", boxSizing: "border-box", padding: "10px 0"}} onClick={() => {navigate("/book_car", {state:{car : car_data}}); alert("Test Drive booking is under development. Redirecting to Booking instead.")}}>Test Drive</button>
                 </div>
                 {/*<p className="portfolio-link">DoW Assured</p>*/}
                 </div>
             </div>
 
-            <h2 class="benefits-heading">Benefits & Add-ons</h2>
-            <div class="benefits-section">
-            <div class="benefit-item">
-                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Warranty Icon"/>
-                <div class="benefit-text">
+            <h2 className="benefits-heading">Benefits & Add-ons</h2>
+            <div className="benefits-section">
+            <div className="benefit-item">
+                <img className="icon" src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Warranty Icon"/>
+                <div className="benefit-text">
                 <strong>6 months</strong><br/>warranty
                 </div>
             </div>
-            <div class="benefit-item">
-                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/190/190406.png" alt="Points Icon"/>
-                <div class="benefit-text">
+            <div className="benefit-item">
+                <img className="icon" src="https://cdn-icons-png.flaticon.com/512/190/190406.png" alt="Points Icon"/>
+                <div className="benefit-text">
                 <strong>200-points</strong><br/>inspected
                 </div>
             </div>
-            <div class="benefit-item">
-                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Money Back Icon"/>
-                <div class="benefit-text">
+            <div className="benefit-item">
+                <img className="icon" src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Money Back Icon"/>
+                <div className="benefit-text">
                 <strong>5-day</strong><br/>money back
                 </div>
             </div>
-            <div class="benefit-item">
-                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/891/891419.png" alt="Fixed Price Icon"/>
-                <div class="benefit-text">
+            <div className="benefit-item">
+                <img className="icon" src="https://cdn-icons-png.flaticon.com/512/891/891419.png" alt="Fixed Price Icon"/>
+                <div className="benefit-text">
                 <strong>Fixed price</strong><br/>assurance
                 </div>
             </div>
-            <div class="benefit-item">
-                <img class="icon" style={{height:"35px", width:"45px", objectFit:"fill"}} src="https://static.vecteezy.com/system/resources/previews/053/473/220/non_2x/tow-truck-lifting-a-green-broken-car-onto-a-flatbed-utilizing-a-crane-for-efficient-roadside-assistance-and-transportation-services-in-an-urban-setting-vector.jpg" alt="Roadside Assistance Icon"/>
-                <div class="benefit-text">
+            <div className="benefit-item">
+                <img className="icon" style={{height:"35px", width:"45px", objectFit:"fill"}} src="https://static.vecteezy.com/system/resources/previews/053/473/220/non_2x/tow-truck-lifting-a-green-broken-car-onto-a-flatbed-utilizing-a-crane-for-efficient-roadside-assistance-and-transportation-services-in-an-urban-setting-vector.jpg" alt="Roadside Assistance Icon"/>
+                <div className="benefit-text">
                 <strong>Roadside</strong><br/>assistance
                 </div>
             </div>
