@@ -1,4 +1,4 @@
-# 🚗 Deals On Wheels — Used Car Resale Platform (MVP)
+# Deals On Wheels — Used Car Resale Platform (MVP)
 
 Deals On Wheels is a full-stack web application that simulates a modern used-car resale platform.
 Users can browse used cars, apply filters, view detailed listings, and proceed through a
@@ -8,7 +8,7 @@ This project was built as an **end-to-end MVP**, with emphasis on real-world bac
 REST APIs, and frontend–backend integration.
 
 🔗 **Live Demo:**  
-https://lnkd.in/dc2JRe6M  
+https://dealsonwheels.vercel.app/
 > Recommended to view on laptop/desktop (mobile not optimized yet)
 
 ---
@@ -84,10 +84,15 @@ For local development, the backend is configured to run on a different port
 ## 📸 Screenshots & API Preview
 
 - Home page with car listings and filters
-- Vehicle detail page
+  ![Shop Page](Screenshots/shop_page.jpeg)
+- Vehicle Listing page
+  ![Listing Page](Screenshots/listing.jpeg)
 - Checkout page
-- Postman POST requests used to add cars
+  ![Checkout Page](Screenshots/checkout.jpeg)
+- API POST requests used to add cars (Shown in Postman)
+  ![API Request](Screenshots/api_query.jpeg)
 - MongoDB collection storing car data
+  ![MongoDB Collection](Screenshots/atlas_db.jpeg)
 
 ---
 
