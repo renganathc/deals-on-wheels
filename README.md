@@ -17,17 +17,6 @@ REST APIs, and frontend–backend integration.
 
 ---
 
-## ✨ Features
-
-- 🚘 Browse used cars with detailed specifications
-- 🎛️ Multi-parameter filtering
-- 📄 Dedicated vehicle detail pages
-- 🛒 Checkout-style booking flow
-- 🔗 RESTful backend with MongoDB
-- 📦 Clear separation of frontend and backend
-
----
-
 ## 🧱 Tech Stack
 
 ### Frontend
@@ -74,17 +63,6 @@ are introduced.
 
 ---
 
-## ⚠️ Development Port Note (macOS)
-
-On macOS, port `5000` may be occupied by system-level services
-(Control Center / AirPlay Receiver). When this happens, requests to
-`localhost:5000` can return `403 Forbidden` without ever reaching the backend.
-
-For local development, the backend is configured to run on a different port
-(e.g. `5002` or `5003`) via environment variables.
-
----
-
 ## 📸 Screenshots & API Preview
 
 - Home page with car listings and filters
@@ -99,6 +77,17 @@ For local development, the backend is configured to run on a different port
   <p align="center"><img src="Screenshots/get_query.png" width="80%" /></p>
 - MongoDB collection storing car data
   <p align="center"><img src="Screenshots/atlas_db.jpeg" width="80%" /></p>
+
+---
+
+## ⚠️ Development Port Note (macOS)
+
+On macOS, port `5000` may be occupied by system-level services
+(Control Center / AirPlay Receiver). When this happens, requests to
+`localhost:5000` can return `403 Forbidden` without ever reaching the backend.
+
+For local development, the backend is configured to run on a different port
+(e.g. `5002` or `5003`) via environment variables.
 
 ---
 
@@ -142,6 +131,17 @@ npm run dev
 ```
 
 > Backend configuration is managed via `.env`.
+
+---
+
+## ✨ Features
+
+- 🚘 Browse used cars with detailed specifications
+- 🎛️ Multi-parameter filtering
+- 📄 Dedicated vehicle detail pages
+- 🛒 Checkout-style booking flow
+- 🔗 RESTful backend with MongoDB
+- 📦 Clear separation of frontend and backend
 
 ---
 
